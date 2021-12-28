@@ -43,6 +43,22 @@ class HotKey {
                     }
                 }
             });
+            document.addEventListener('mousewheel', (e) => {
+                if (player.focus) {
+                    if (e.deltaY < -2) {
+                        player.volume(player.volume() - 0.01);
+                    } else if (e.deltaY > 2) {
+                        player.volume(player.volume() + 0.01);
+                    }
+                    if (e.deltaX < -2) {
+                        player.seek(player.video.currentTime + 1);
+                        player.controller.setAutoHide();
+                    } else if (e.deltaX > 2) {
+                        player.seek(player.video.currentTime - 1);
+                        player.controller.setAutoHide();
+                    }
+                }
+            });
         }
 
         document.addEventListener('keydown', (e) => {

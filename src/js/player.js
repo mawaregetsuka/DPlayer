@@ -118,14 +118,14 @@ class DPlayer {
         this.plugins = {};
 
         document.addEventListener(
-            'click',
+            'mouseover',
             () => {
                 this.focus = false;
             },
             true
         );
         this.container.addEventListener(
-            'click',
+            'mouseover',
             () => {
                 this.focus = true;
             },
